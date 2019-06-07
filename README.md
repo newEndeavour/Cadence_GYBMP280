@@ -1,8 +1,10 @@
-# GY_BMP280 Driver (Barometric Pressure Sensor) 
+#Cadence_GYBMP280 library#
+Driver for GY_BMP280 Barometric Pressure Sensor from Bosch (https://github.com/newEndeavour/Cadence_GYBMP280/blob/master/GY_BMP280.JPG)
 
-Cadence_GYBMP280 was originally inspired from Adafruit_BMP280 by K.Townsend (Adafruit Industries) and is maintained by Jerome Drouin.
+Credits:
+The Cadence_GYBMP280 library was originally inspired from Adafruit_BMP280 by K.Townsend (Adafruit Industries) and is maintained by Jerome Drouin.
 
-About the GY_BMP280 Sensor
+About the GY_BMP280 Sensor:
 This precision sensor from Bosch is the best low-cost sensing solution for measuring barometric pressure and temperature. 
 Because pressure changes with altitude you can also use it as an altimeter using the ISA standard atmosphere characteristics.
 
@@ -11,7 +13,7 @@ The sensor is a 3.3V device: a Logic Level shifter must be used to avoid damagin
 In some cases, 5V may be used and may not damage the sensor, but the behaviour of the sensor may not be predictable.  
 
 
-Library Compatibility
+Library Compatibility:
 
 MCU                | Tested Works | Doesn't Work | Not Tested  | Notes
 ------------------ | :----------: | :----------: | :---------: | -----

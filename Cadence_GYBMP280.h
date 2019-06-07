@@ -1,8 +1,8 @@
 /*
   File:         Cadence_GYBMP280.h
-  Version:      1.0.0
+  Version:      1.0.1
   Date:         4-Jun-2019
-  Revision:     4-Jun-2019
+  Revision:     6-Jun-2019
   Author:       Jerome Drouin
   
   https://github.com/newEndeavour/Cadence_GYBMP280
@@ -62,6 +62,12 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+  Versions:
+  1.0.0		: Initial version
+  1.0.1		: Introduced Default_ISA_QNH
+		  Added Altitude in Metre and Feet
+
+	
 */
 
 
@@ -81,7 +87,7 @@
 #define BMP280_CHIPID 		(0x58) 	//Default chip ID
 
 
-#define DEFAULT_QNH 		1013.25	//Default Pressure Altitude at Sea Level in ISA Atmosphere
+#define DEFAULT_ISA_QNH 	1013.25	//Default Pressure Altitude at Sea Level in ISA Atmosphere
 
 
 //  Forward declarations of Wire and SPI for board/variant combinations that don't have a default 'Wire' or 'SPI' 
@@ -192,8 +198,10 @@ public:
   void	        setDefaultQNH(float);
   float	        getDefaultQNH();
   float 	readPressure(void);
-  float 	readAltitude(void);
-  float 	readAltitude(float);
+  float 	readAltitudeMetre(void);
+  float 	readAltitudeMetre(float);
+  float 	readAltitudeFeet(void);
+  float 	readAltitudeFeet(float);
   void 		setSampling(	sensor_mode mode = MODE_NORMAL,
                    		sensor_sampling tempSampling = SAMPLING_X16,
                    		sensor_sampling pressSampling = SAMPLING_X16,

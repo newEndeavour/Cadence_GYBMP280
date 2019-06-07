@@ -1,8 +1,8 @@
 /*
   File:         Cadence_GYBMP280.cpp
-  Version:      1.0.0
+  Version:      1.0.1
   Date:         4-Jun-2019
-  Revision:     4-Jun-2019
+  Revision:     6-Jun-2019
   Author:       Jerome Drouin
   
   https://github.com/newEndeavour/Cadence_GYBMP280
@@ -154,7 +154,7 @@ bool Cadence_GYBMP280::begin(uint8_t addr, uint8_t chipid) {
   setSampling();
 
   //Set default QNH
-  default_QNH = DEFAULT_QNH;
+  default_QNH = DEFAULT_ISA_QNH;
 
   delay(100);
   return true;
@@ -426,13 +426,28 @@ float Cadence_GYBMP280::readPressure() {
 // Calculates the approximate altitude using barometric pressure and the
 // supplied sea level hPa as a reference.
 // Returns The approximate altitude above sea level in meters.
-float Cadence_GYBMP280::readAltitude(float seaLevelhPa) {
+float Cadence_GYBMP280::readAltitudeMetre(float seaLevelhPa) {
   float altitude;
 
   float localhPa = readPressure(); // in Si units for Pascal
   localhPa /= 100;
 
   altitude = 44330.76 * (1.0 - pow(localhPa / seaLevelhPa, 0.190263));
+
+  return altitude;
+}
+
+
+// Calculates the approximate altitude using barometric pressure and the
+// supplied sea level hPa as a reference.
+// Returns The approximate altitude above sea level in Feet.
+float Cadence_GYBMP280::readAltitudeFeet(float seaLevelhPa) {
+  float altitude;
+
+  float localhPa = readPressure(); // in Si units for Pascal
+  localhPa /= 100;
+
+  altitude = 145366.45 * (1.0 - pow(localhPa / seaLevelhPa, 0.190263));
 
   return altitude;
 }
@@ -457,13 +472,28 @@ float Cadence_GYBMP280::getDefaultQNH() {
 // Calculates the approximate altitude using barometric pressure and the
 // default default_QNH (sea level hPa) as a reference
 // Returns The approximate altitude above sea level in meters.
-float Cadence_GYBMP280::readAltitude() {
+float Cadence_GYBMP280::readAltitudeMetre() {
   float altitude;
 
   float localhPa = readPressure(); // in Si units for Pascal
   localhPa /= 100;
 
   altitude = 44330.76 * (1.0 - pow(localhPa / default_QNH, 0.190263));
+
+  return altitude;
+}
+
+
+// Calculates the approximate altitude using barometric pressure and the
+// default default_QNH (sea level hPa) as a reference
+// Returns The approximate altitude above sea level in Feet.
+float Cadence_GYBMP280::readAltitudeFeet() {
+  float altitude;
+
+  float localhPa = readPressure(); // in Si units for Pascal
+  localhPa /= 100;
+
+  altitude = 145366.45 * (1.0 - pow(localhPa / default_QNH, 0.190263));
 
   return altitude;
 }
