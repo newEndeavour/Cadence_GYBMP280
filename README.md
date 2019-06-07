@@ -1,5 +1,5 @@
 #Cadence_GYBMP280 library#
-Driver for GY_BMP280 Barometric Pressure Sensor from Bosch (https://github.com/newEndeavour/Cadence_GYBMP280/blob/master/GY_BMP280.JPG)
+Driver for GY_BMP280 Barometric Pressure Sensor from Bosch (https://github.com/newEndeavour/Cadence_GYBMP280/blob/master/GY-BMP280-3V3-High-Precision-Atmospheric-Pressure-Sensor-Module-for-Arduino.jpg)
 
 Credits:
 The Cadence_GYBMP280 library was originally inspired from Adafruit_BMP280 by K.Townsend (Adafruit Industries) and is maintained by Jerome Drouin.
